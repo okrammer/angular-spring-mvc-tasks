@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:cache="http://www.springframework.org/schema/cache"
+       default-lazy-init="false"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+
+    <mvc:annotation-driven>
+        <!-- Registers *additional* message converters -->
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <mvc:resources mapping="**/*.html" location="classpath:/META-INF/public-web-resources/"/>
+    <mvc:resources mapping="**/*.ts" location="classpath:/META-INF/public-web-resources/"/>
+    <mvc:resources mapping="**/*.js.map" location="classpath:/META-INF/public-web-resources/"/>
+    <mvc:resources mapping="**/*.js" location="classpath:/META-INF/public-web-resources/"/>
+    <mvc:resources mapping="**/*.css" location="classpath:/META-INF/public-web-resources/"/>
+
+
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
+
+
+    <context:component-scan base-package="com.comsysto.examples.rest">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+</beans>

@@ -1,0 +1,67 @@
+<html ng-app="tasks">
+<head>
+    <title>Hello Angular</title>
+    <script type="application/javascript" src="js/lib/jquery-2_1_1.js"></script>
+    <script type="application/javascript" src="js/lib/angular-1_2_16.js"></script>
+    <script type="application/javascript" src="js/lib/bootstrap-3_1_1.js"></script>
+    <script type="application/javascript" src="js/lib/angular_ui-0_10_0.js"></script>
+    <script type="application/javascript" src="js/app/app.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-3_1_1.css" />
+</head>
+<body ng-controller="tasksController" class="container">
+<h2>AngularJs Tasks</h2>
+<br/><br/>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">New Task</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="control-group col-md-2">
+                <label class="control-label" for="taskName">TaskName</label>
+
+                <div class="controls">
+                    <input id="taskName" ng-model="taskName" type="text"/>
+                </div>
+            </div>
+            <div class="control-group col-md-2">
+                <label for="taskPriority">Priority</label>
+
+                <div class="controls">
+                    <select id="taskPriority" ng-model="taskPriority"
+                            ng-options="priority as priority.name for priority in priorities">
+                        <option>-- choose priority --</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <br/>
+                <a class="btn btn-primary" ng-click="addTask()">create</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Stored Tasks</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <tr ng-repeat="task in tasks">
+                <td>{{task.id}}</td>
+                <td>{{task.name}}</td>
+                <td>{{task.priority.name}}</td>
+                <td>{{task.dueDate.toLocaleString()}}</td>
+                <td><a class="btn btn-xs btn-danger" ng-click="deleteTask(task)">delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
