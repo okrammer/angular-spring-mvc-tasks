@@ -17,5 +17,6 @@ target-grunt
 node_modules
 
 # generated javascript
-src/main/resources/META-INF/public-web-resources/js/app
+src/main/resources/META-INF/public-web-resources/**/out/_app.js
+src/main/resources/META-INF/public-web-resources/**/out/_app.js.map
 

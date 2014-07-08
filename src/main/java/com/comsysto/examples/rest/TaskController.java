@@ -15,10 +15,12 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequestMapping(value = "rest/task", consumes = "*/*")
 public class TaskController {
 
-    private Map<String, Task> tasks = new ConcurrentHashMap<String, Task>();
+    private Map<String, Task> tasks = Collections.synchronizedMap(new LinkedHashMap<String, Task>());
 
     public TaskController() {
-        addTask(new Task(UUID.randomUUID().toString(), "TestTask", Priority.DEFAULT, new Date()));
+        addTask(new Task(UUID.randomUUID().toString(), "Learn JavaScript", Priority.DEFAULT, new Date()));
+        addTask(new Task(UUID.randomUUID().toString(), "Learn AngularJS", Priority.DEFAULT, new Date()));
+        addTask(new Task(UUID.randomUUID().toString(), "Learn TypeScript", Priority.DEFAULT, new Date()));
     }
 
     @RequestMapping(value = "get", method = RequestMethod.GET)

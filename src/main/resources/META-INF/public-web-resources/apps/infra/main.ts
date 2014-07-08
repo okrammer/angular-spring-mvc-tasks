@@ -5,7 +5,7 @@ module tasks {
     angular.module("tasks", [])
     .run(ScopeConfigurer)
     .service('tasksRepository', TasksRepository)
-    .controller('tasksController', TasksControllerSimple)
+    .controller('tasksController', TasksController)
 
 
 }

@@ -1,12 +1,12 @@
 <html ng-app="tasks">
 <head>
     <title>Hello Angular</title>
-    <script type="application/javascript" src="js/lib/jquery-2_1_1.js"></script>
-    <script type="application/javascript" src="js/lib/angular-1_2_16.js"></script>
-    <script type="application/javascript" src="js/lib/bootstrap-3_1_1.js"></script>
-    <script type="application/javascript" src="js/lib/angular_ui-0_10_0.js"></script>
-    <script type="application/javascript" src="js/app/app.js"></script>
-    <link rel="stylesheet" href="css/bootstrap-3_1_1.css" />
+    <script type="application/javascript" src="/common/js/jquery-2_1_1.js"></script>
+    <script type="application/javascript" src="/common/js/angular-1_2_16.js"></script>
+    <script type="application/javascript" src="/common/js/bootstrap-3_1_1.js"></script>
+    <script type="application/javascript" src="/common/js/angular_ui-0_10_0.js"></script>
+    <script type="application/javascript" src="out/_app.js"></script>
+    <link rel="stylesheet" href="../../common/css/bootstrap-3_1_1.css" />
 </head>
 <body ng-controller="tasksController" class="container">
 <h2>AngularJs Tasks</h2>
@@ -52,6 +52,13 @@
     </div>
     <div class="panel-body">
         <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Priority</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
             <tr ng-repeat="task in tasks">
                 <td>{{task.id}}</td>
                 <td>{{task.name}}</td>
