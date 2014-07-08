@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                 "src/main/resources/META-INF/public-web-resources/ts/tasks/*.tpl.html"
             ],
             // If specified, generate this file that to can use for reference management
-            reference: "src/main/resources/ts/_reference.ts",
+            reference: "src/main/resources/META-INF/public-web-resources/ts/_reference.ts",
             // If specified, generate an out.js file which is the merged js file
             out: 'src/main/resources/META-INF/public-web-resources/js/app/app.js',
             // If specified, the generate JavaScript files are placed here. Only works if out is not specified
